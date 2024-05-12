@@ -22,13 +22,13 @@ export default {
 
             curElem.popup = !curElem.popup;
 
-            // condition api for film or series...
+            
             if (curElem.title) {
                 FioSe = "movie";
             } else {
                 FioSe = "tv"
             }
-            // /condition api for film or series...
+          
 
             axios.get(`https://api.themoviedb.org/3/${FioSe}/${curElem.id}/credits`, {
                 params: paramsobj
@@ -36,7 +36,7 @@ export default {
                 store.listCastArray = resp.data.cast;
             });
 
-            // CLOSE OVERLAY AFTER 3 SECONDS
+            
             setTimeout(function () {
                 if (FioSe === "movie") {
                     store.arrayFilm[curInd].popup = false;
